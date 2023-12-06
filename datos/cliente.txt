@@ -1,1 +1,2 @@
 a;a;a;a;a;a;a;a;a;a;a;a
+nom uno;user1;123456;123456;123456789;user1@gmail.com;preg1;resp1;preg2;resp2;preg3;resp3
