@@ -397,8 +397,6 @@ class Ventana1(QMainWindow):
         # establecemos el layout para la ventana
         self.ventanaDialogo.setLayout(self.vertical)
 
-        # variable para controlar que se han ingresado los datos correctos
-        self.datosCorrectos = True
 
    # metodo del boton limpiar
     def accion_botonLimpiar(self):
@@ -417,6 +415,9 @@ class Ventana1(QMainWindow):
 
    # metodo del boton registrarse
     def accion_botonRegistrar(self):
+
+        # variable para controlar que se han ingresado los datos correctos
+        self.datosCorrectos = True
 
        # validamos que los passwords sean iguales
         if(
@@ -488,6 +489,10 @@ class Ventana1(QMainWindow):
 
     # metodo del botonBuscar
     def accion_botonBuscar(self):
+
+       # variable para controlar que se han ingresado los datos correctos
+       self.datosCorrectos = True
+
        # establecemos el titulo de la ventana
        self.ventanaDialogo.setWindowTitle("Buscar preguntas de validación")
 
@@ -568,27 +573,34 @@ class Ventana1(QMainWindow):
 
            # buscamos en la lista usuario por usuario si existe la cedula
            for u in usuarios:
+
                # comnpramos el documento ingresado
                # si corresponde con el documento es el usuario correcto
                if u.documento == self.documento.text():
+
                    # mostramos la pregunta del formulario
                    self.pregunta1.setText(u.pregunta1)
                    self.pregunta2.setText(u.pregunta2)
                    self.pregunta3.setText(u.pregunta3)
+
                    # indicamos que encontramos el documento
                    existeDocumento = True
+
                    # paramos el for
                    break
+
            # si no existe un usuario con este documento
            if (
-                   not existeDocumento
+                not existeDocumento
            ):
-               # escribimos el texto explicativo:
-               self.mensaje.setText("No esxiste un usuario con este documento:\n"
-                                    + self.documento.text())
+                # escribimos el texto explicativo:
+                self.mensaje.setText("No esxiste un usuario con este documento:\n"
+                                    +self.documento.text())
 
-               # hacemos que la ventana de dialogo se vea
-               self.ventanaDialogo.exec_()
+                # hacemos que la ventana de dialogo se vea
+                self.ventanaDialogo.exec_()
+
+
 
 
 if __name__ == '__main__':
